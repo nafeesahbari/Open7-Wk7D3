@@ -9,22 +9,26 @@ function Form({ data, setData }) {
   function submitHandler(e) {
     // prevent default behavior
     e.preventDefault();
-
     // create a new todo object that fits the data schema
-    const newToDo = {
-      title,
-      description,
-      time
+    const newTodo = {
+      title: title,
+      description: description,
+      time: time
     }
-    
-    // set the data array to include the new todo object 
-    setData([... data]);
 
+    // const newTodo = {
+    //   title,
+    //   description,
+    //   time
+    // }
+
+  
+    // set the data array to include the new todo object 
+    setData([...data, newTodo]);
     // clear the form
     setTitle("");
     setDescription("");
     setTime("");
-
   }
 
   return (
