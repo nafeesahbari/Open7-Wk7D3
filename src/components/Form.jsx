@@ -8,9 +8,23 @@ function Form({ data, setData }) {
 
   function submitHandler(e) {
     // prevent default behavior
+    e.preventDefault();
+
     // create a new todo object that fits the data schema
+    const newToDo = {
+      title,
+      description,
+      time
+    }
+    
     // set the data array to include the new todo object 
+    setData([... data]);
+
     // clear the form
+    setTitle("");
+    setDescription("");
+    setTime("");
+
   }
 
   return (
@@ -18,14 +32,20 @@ function Form({ data, setData }) {
       <input
         type="text"
         placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
       <input
         type="text"
         placeholder="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
       />
       <input
         type="text"
         placeholder="Time"
+        value={time}
+        onChange={(e) => setTime(e.target.value)}
       />
       <button type="submit">Submit</button>
     </form>
